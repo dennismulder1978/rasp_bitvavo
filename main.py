@@ -1,4 +1,5 @@
 from func import *
+from math import floor
 
 coin_list = ['ADA', 'SOL', 'SAND', 'XRP']
 coin_balance = {}
@@ -20,7 +21,7 @@ if balance_EURO > 10:
 		if (coin_balance[each] == 0) & (coin_ma_ratio[each] > 1):
 			count += 1
 try:
-	spend = round((balance_EURO / count), 0)
+	spend = floor(balance_EURO / count)
 	print(f'Divide {balance_EURO} by: {count} makes: €{spend}', end="\n--------------------\n")
 except Exception as e:
 	print(e)
