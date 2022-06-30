@@ -10,7 +10,7 @@ print('--------------------')
 for each in coin_list:
 	coin_balance[each] = get_balance(each)
 	coin_price[each] = get_price(each)
-	coin_ma_ratio[each] = moving_avarages_ratio(each, 6, 18, '1h')
+	coin_ma_ratio[each] = moving_averages_ratio(each, 6, 18, '1h')
 
 
 # determine amount to invest in
