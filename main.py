@@ -1,6 +1,6 @@
 from func import *
 
-coin_list = ['ADA', 'SOL', 'SAND']
+coin_list = ['ADA', 'SOL', 'SAND', 'XRP']
 coin_balance = {}
 coin_price = {}
 coin_ma_ratio = {}
