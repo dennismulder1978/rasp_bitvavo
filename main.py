@@ -20,13 +20,12 @@ if balance_EURO > 10:
 		if (coin_balance[each] == 0) & (coin_ma_ratio[each] > 1):
 			count += 1
 try:
-	spend = round((balance_EURO / count),0)
-	print(f'Devide {balance_EURO} by: {count} makes: €{spend}', end="\n--------------------\n")
+	spend = round((balance_EURO / count), 0)
+	print(f'Divide {balance_EURO} by: {count} makes: €{spend}', end="\n--------------------\n")
 except Exception as e:
 	print(e)
 	spend = 0
-	print(f'{balance_EURO} cannot be devided by {count}. Spending is €{spend}', end="\n--------------------\n")
-
+	print(f'{balance_EURO} cannot be divided by {count}. Spending is €{spend}', end="\n--------------------\n")
 
 
 # LOG items: Action, Pair, Amount, Error, datetime
@@ -38,4 +37,3 @@ for each in coin_list:
 	else:
 		log(f'Do nothing,{each}-EUR,0,{coin_price[each]},none', 'log')
 		print(f'{each}: Do nothing')
-
