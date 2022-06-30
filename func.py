@@ -16,7 +16,6 @@ bitvavo = Bitvavo({
 def get_balance(symbol: str):
     bal = 0
     try:
-        print(bitvavo.balance({"symbol": str.upper(symbol)}))
         bal = float(bitvavo.balance({"symbol": str.upper(symbol)})[0]['available'])
         print(f'Balance({symbol}) = {bal}')
     except Exception as e:
