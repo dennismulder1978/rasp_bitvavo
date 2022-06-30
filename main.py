@@ -13,7 +13,7 @@ for each in coin_list:
 	coin_ma_ratio[each] = moving_avarages_ratio(each, 6, 18, '1h')
 
 
-# determine amount to invest
+# determine amount to invest in
 count = 0
 if balance_EURO > 10:
 	for each in coin_list:
