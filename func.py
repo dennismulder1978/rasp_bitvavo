@@ -54,7 +54,7 @@ def moving_averages_ratio(symbol: str, first: int, second: int, time_type):
 
 
 def log(stringer: str, name: str):
-    file = f'./{name}.csv'
+    file = f'/home/pi/new_RPI_BITV/rasp_bitvavo/{name}.csv'
     text = f'{stringer},{datetime.datetime.now()}\n'
     if os.path.isfile(file):
         with open(file, 'a') as f:
