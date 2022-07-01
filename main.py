@@ -31,7 +31,7 @@ except Exception as e:
 
 # LOG items: Action, Pair, Amount, Error, datetime
 for each in coin_list:
-	if (coin_ma_ratio[each] >= 1) & (coin_balance[each] == 0):
+	if (coin_ma_ratio[each] >= 1) & (coin_balance[each] == 0) & (spend != 0):
 		print(trade_market_order(each, 'buy', round((spend / coin_price[each]), 4), coin_price[each]))
 	elif (coin_ma_ratio[each] < 1) & (coin_balance[each] > 0):
 		print(trade_market_order(each, 'sell', coin_balance[each], coin_price[each]))
