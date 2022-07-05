@@ -1,7 +1,6 @@
 from func import *
-from math import floor
 
-coin_list = ['ADA', 'SOL', 'SAND', 'XRP']
+coin_list = ['ADA', 'SOL', 'SAND']
 coin_balance = {}
 coin_price = {}
 coin_ma_ratio = {}
@@ -21,7 +20,7 @@ if balance_EURO > 10:
 		if (coin_balance[each] == 0) & (coin_ma_ratio[each] > 1):
 			count += 1
 try:
-	spend = floor(0.99*(balance_EURO / count))
+	spend = balance_EURO / count
 	print(f'Divide {balance_EURO} by: {count} makes: €{spend}', end="\n--------------------\n")
 except Exception as e:
 	print(e)
@@ -32,7 +31,7 @@ except Exception as e:
 # LOG items: Action, Pair, Amount, Error, datetime
 for each in coin_list:
 	if (coin_ma_ratio[each] >= 1) & (coin_balance[each] == 0) & (spend != 0):
-		print(trade_market_order(each, 'buy', round((spend / coin_price[each]), 4), coin_price[each]))
+		print(trade_market_order(each, 'buy', spend, coin_price[each]))
 	elif (coin_ma_ratio[each] < 1) & (coin_balance[each] > 0):
 		print(trade_market_order(each, 'sell', coin_balance[each], coin_price[each]))
 	else:

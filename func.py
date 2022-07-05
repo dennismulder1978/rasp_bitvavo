@@ -71,7 +71,10 @@ def log(stringer: str, name: str):
 def trade_market_order(symbol: str, action: str, amount, price):
     pair = str.upper(symbol) + '-EUR'
     try:
-        bitvavo.placeOrder(pair, action, 'market', {'amount': amount})
+        if action == 'buy':
+            bitvavo.placeOrder(pair, action, 'market', {'AmountQuote': amount})
+        elif action == 'sell':
+            bitvavo.placeOrder(pair, action, 'market', {'amount': amount})
         log(f'{action},{pair},{amount},{price},none', 'log')
         log(f'{action},{pair},{amount},{price},none', 'action')
         return f'{action}, {pair}, {action}, {amount}, {datetime.datetime.now()}'
