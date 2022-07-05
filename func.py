@@ -54,7 +54,7 @@ def moving_averages_ratio(symbol: str, first: int, second: int, time_type):
 
 
 def log(stringer: str, name: str):
-    file = f'/home/pi/new_RPI_BITV/rasp_bitvavo/{name}.csv'
+    file = f'./{name}.csv'
     text = f'{stringer},{datetime.datetime.now()}\n'
     if os.path.isfile(file):
         with open(file, 'a') as f:
@@ -72,12 +72,12 @@ def trade_market_order(symbol: str, action: str, amount, price):
     pair = str.upper(symbol) + '-EUR'
     try:
         if action == 'buy':
-            bitvavo.placeOrder(pair, action, 'market', {'amountQuote': amount})
+            a = bitvavo.placeOrder(pair, action, 'market', {'amountQuote': amount})
         elif action == 'sell':
-            bitvavo.placeOrder(pair, action, 'market', {'amount': amount})
+            a = bitvavo.placeOrder(pair, action, 'market', {'amount': amount})
         log(f'{action},{pair},{amount},{price},none', 'log')
         log(f'{action},{pair},{amount},{price},none', 'action')
-        return f'{action}, {pair}, {action}, {amount}, {datetime.datetime.now()}'
+        return f'{a}, {pair}, {action}, {amount}, {datetime.datetime.now()}'
     except Exception as e:
         log(f'{action},{pair},{amount},{price},{e}', 'log')
         log(f'{action},{pair},{amount},{price},{e}', 'error')
