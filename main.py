@@ -21,7 +21,7 @@ if balance_EURO > 10:
 		if (coin_balance[each] == 0) & (coin_ma_ratio[each] > 1):
 			count += 1
 try:
-	spend = balance_EURO / count
+	spend = floor(balance_EURO / count)
 	print(f'Divide {balance_EURO} by: {count} makes: €{spend}', end="\n--------------------\n")
 except Exception as e:
 	print(e)
