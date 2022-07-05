@@ -32,9 +32,9 @@ except Exception as e:
 # LOG items: Action, Pair, Amount, Error, datetime
 for each in coin_list:
 	if (coin_ma_ratio[each] >= 1) & (coin_balance[each] == 0) & (spend != 0):
-		print(trade_market_order(each, 'buy', spend, coin_price[each]))
+		print(trade_market_order(each, 'buy', str(spend), coin_price[each]))
 	elif (coin_ma_ratio[each] < 1) & (coin_balance[each] > 0):
-		print(trade_market_order(each, 'sell', coin_balance[each], coin_price[each]))
+		print(trade_market_order(each, 'sell', str(coin_balance[each]), coin_price[each]))
 	else:
 		log(f'Do nothing,{each}-EUR,0,{coin_price[each]},none', 'log')
 		print(f'{each}: Do nothing')
