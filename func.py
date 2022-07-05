@@ -76,7 +76,7 @@ def trade_market_order(symbol: str, action: str, amount, price):
         elif action == 'sell':
             a = bitvavo.placeOrder(pair, action, 'market', {'amount': amount})
         log(f'{action},{pair},{amount},{price},{a}', 'log')
-        log(f'{action},{pair},{amount},{price},{a}', 'action')
+        log(f'{action},{pair},{amount},{price},none', 'action')
         return f'{a}, {pair}, {action}, {amount}, {datetime.datetime.now()}'
     except Exception as e:
         log(f'{action},{pair},{amount},{price},{e}', 'log')
