@@ -72,7 +72,7 @@ def trade_market_order(symbol: str, action: str, amount, price):
     pair = str.upper(symbol) + '-EUR'
     try:
         if action == 'buy':
-            bitvavo.placeOrder(pair, action, 'market', {'AmountQuote': amount})
+            bitvavo.placeOrder(pair, action, 'market', {'amountQuote': amount})
         elif action == 'sell':
             bitvavo.placeOrder(pair, action, 'market', {'amount': amount})
         log(f'{action},{pair},{amount},{price},none', 'log')
