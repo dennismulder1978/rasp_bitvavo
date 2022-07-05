@@ -74,7 +74,7 @@ def trade_market_order(symbol: str, action: str, amount, price):
         if action == 'buy':
             a = bitvavo.placeOrder(pair, 'buy', 'market', {'amountQuote': amount})
         elif action == 'sell':
-            a = bitvavo.placeOrder(pair, 'sell', 'market', {'amount': amount})
+            a = bitvavo.placeOrder(pair, action, 'market', {'amount': amount})
         log(f'{action},{pair},{amount},{price},{a}', 'log')
         log(f'{action},{pair},{amount},{price},{a}', 'action')
         return f'{a}, {pair}, {action}, {amount}, {datetime.datetime.now()}'
